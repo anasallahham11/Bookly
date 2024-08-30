@@ -28,7 +28,7 @@ TextStyle getMediumStyle({double fontSize=FontSize.s16,required Color color}){
 }
 
 ///bold style
-TextStyle getBoldStyle({double fontSize=FontSize.s20,required Color color}){
+TextStyle getBoldStyle({double fontSize=FontSize.s30,required Color color}){
   return _getTextStyle(fontSize, FontWeightManager.bold, color);
 }
 

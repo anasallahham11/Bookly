@@ -8,6 +8,7 @@ class ColorManager {
   static Color white = const Color(0xffffffff);
   static Color offWhite = const Color.fromARGB(255, 245, 245, 245);
   static Color black = const Color(0xff000000);
+  static Color gold = const Color(0xffffc14e);
 
 
   //PURPLE PALETTE
