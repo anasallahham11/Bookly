@@ -1,3 +1,4 @@
+import 'package:bookly/core/utils/font_manager.dart';
 import 'package:bookly/core/utils/routes_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -6,8 +7,8 @@ import '../../../../../core/utils/color_manager.dart';
 import '../../../../../core/utils/style_manager.dart';
 import 'book_rating.dart';
 
-class BestSellerListViewItem extends StatelessWidget {
-  const BestSellerListViewItem({Key? key}) : super(key: key);
+class BookListViewItem extends StatelessWidget {
+  const BookListViewItem({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +52,7 @@ class BestSellerListViewItem extends StatelessWidget {
                     children: [
                       Text(
                         "19.99 \$",
-                        style: getBoldStyle(color: ColorManager.white),
+                        style: getBoldStyle(color: ColorManager.white,fontSize: FontSize.s20),
                       ),
                       const Spacer(),
                       const BookRating(),

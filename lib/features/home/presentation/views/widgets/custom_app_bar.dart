@@ -1,5 +1,7 @@
+import 'package:bookly/core/utils/routes_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../../core/utils/assets_manager.dart';
 
@@ -15,10 +17,12 @@ class CustomAppBar extends StatelessWidget {
           Image.asset(AssetsManager.logo,height: 40,),
           const Spacer(),
           IconButton(
-            onPressed: (){},
+            onPressed: (){
+              GoRouter.of(context).push(RoutesManager.searchRoute);
+            },
             icon: const Icon(
               FontAwesomeIcons.magnifyingGlass,
-              size: 28,
+              size: 24,
             ),
           ),
         ],
