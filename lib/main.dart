@@ -1,8 +1,14 @@
 import 'package:bookly/constants.dart';
 import 'package:bookly/core/utils/routes_manager.dart';
+import 'package:bookly/features/home/domain/entities/book_entity.dart';
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
-void main() {
+void main() async {
+  await Hive.initFlutter();
+  Hive.registerAdapter(BookEntityAdapter());
+  await Hive.openBox<BookEntity>(kFeaturedBox);
+  await Hive.openBox<BookEntity>(kBestSellersBox);
   runApp(const Bookly());
 }
 
