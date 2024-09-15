@@ -14,7 +14,7 @@ class SimilarBooksSection extends StatelessWidget {
       children: [
         Text("You can also like : ",style: getSemiBoldStyle(color: ColorManager.white),),
         const SizedBox(height: 15,),
-        const SimilarBooksListView(),
+        const SimilarBooksListView(books: [],),
       ],
     );
   }

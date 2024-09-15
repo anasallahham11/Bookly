@@ -6,13 +6,13 @@ import 'package:dio/dio.dart';
 import '../../../../core/utils/functions/save_books.dart';
 
 abstract class HomeRemoteDataSource {
-  Future<List<BookEntity>> fetchFeaturedBooks();
+  Future<List<BookEntity>> fetchFeaturedBooks({int pageNumber=0});
   Future<List<BookEntity>> fetchBestSellersBooks();
 }
 class HomeRemoteDataSourceImpl extends HomeRemoteDataSource{
   @override
-  Future<List<BookEntity>> fetchFeaturedBooks() async{
-    var response = await ApiService.getData(url: "${ApiService.baseUrl}volumes?q=programming");
+  Future<List<BookEntity>> fetchFeaturedBooks({int pageNumber=0}) async{
+    var response = await ApiService.getData(url: "${ApiService.baseUrl}volumes?q=programming&startIndex=${pageNumber*10}");
     List<BookEntity> books = getBooksList(response);
     saveBooksData(books,kFeaturedBox);
     return books;

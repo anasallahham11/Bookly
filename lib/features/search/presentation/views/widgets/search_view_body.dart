@@ -20,7 +20,7 @@ class SearchViewBody extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: 16.0),
             child: Text("Search Result :",style: getSemiBoldStyle(color: ColorManager.white,fontSize: FontSize.s20),),
           ),
-          const Expanded(child: SearchResultListView()),
+          const Expanded(child: SearchResultListView(books: [],)),
         ],
       ),
     );

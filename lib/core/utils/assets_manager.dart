@@ -1,5 +1,5 @@
 class AssetsManager{
-  static const logo ="assets/images/JOBLY_LOGO_White.png";
+  static const logo ="assets/images/booksLogo.png";
   static const book1 ="assets/images/book1.jpg";
   static const book2 ="assets/images/book2.jpg";
   static const book3 ="assets/images/book3.jpg";

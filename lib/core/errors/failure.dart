@@ -31,10 +31,12 @@ class ServerFailure extends Failure{
       return ServerFailure("Your Request Was Not Found, Please Try Again Later");
     } else if(statusCode==500){
       return ServerFailure("There Is A Problem With Server, Please Try Again Later");
-    }else if(statusCode==400 || statusCode==401 || statusCode==403){
+    }else if(statusCode==400 || statusCode==401 ){
       return ServerFailure(response['error']['message']);
+    }else if(statusCode==403){
+      return ServerFailure("Forbidden Request");
     }else{
-      return ServerFailure("It Seems There Was An Error, Please Try Again");
+      return ServerFailure("It Seems There Was A Response Error, Please Try Again");
     }
   }
 

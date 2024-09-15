@@ -17,14 +17,14 @@ class BookDetailsSection extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsets.symmetric(horizontal: width * 0.17),
-          child: const CustomBookImageItem(),
+          child: CustomBookImageItem(image: '',),
         ),
         const SizedBox(height: AppSize.s40,),
         Text("Frost Arch",style: getBoldStyle(color: ColorManager.white),),
         const SizedBox(height: AppSize.s8,),
         Text("Anas Allahham",style: getMediumStyle(color: ColorManager.white.withOpacity(0.7)).copyWith(fontStyle: FontStyle.italic),),
         const SizedBox(height: AppSize.s12,),
-        const BookRating(mainAxisAlignment: MainAxisAlignment.center,),
+        const BookRating(mainAxisAlignment: MainAxisAlignment.center, rating: '',),
         const SizedBox(height: AppSize.s40,),
         const BookActions(),
       ],

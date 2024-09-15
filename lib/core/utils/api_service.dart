@@ -20,11 +20,11 @@ class ApiService
     String? token,
   })async
   {
-    dio.options.headers={
-      'content_type':'application/json',
-      'lang':lang,
-      'Authorization': 'Bearer $token',
-    };
+    // dio.options.headers={
+    //   'content_type':'application/json',
+    //   'lang':lang,
+    //   'Authorization': 'Bearer $token',
+    // };
     return await dio.get(
       url,
       queryParameters:query,

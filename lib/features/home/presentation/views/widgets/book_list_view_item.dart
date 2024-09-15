@@ -1,15 +1,18 @@
 import 'package:bookly/core/utils/font_manager.dart';
 import 'package:bookly/core/utils/routes_manager.dart';
+import 'package:bookly/features/home/domain/entities/book_entity.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import '../../../../../core/utils/assets_manager.dart';
 import '../../../../../core/utils/color_manager.dart';
 import '../../../../../core/utils/style_manager.dart';
 import 'book_rating.dart';
 
 class BookListViewItem extends StatelessWidget {
-  const BookListViewItem({Key? key}) : super(key: key);
+  const BookListViewItem({Key? key, required this.book}) : super(key: key);
 
+
+  final BookEntity book;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -20,10 +23,11 @@ class BookListViewItem extends StatelessWidget {
           children: [
             AspectRatio(
               aspectRatio: 2.5/4,
-              child: Container(
-                decoration:  BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
-                    image: const DecorationImage(image: AssetImage(AssetsManager.book6),fit: BoxFit.fill)
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(8),
+                child: CachedNetworkImage(
+                  imageUrl: book.image ?? "",
+                  fit: BoxFit.fill,
                 ),
               ),
             ),
@@ -35,7 +39,7 @@ class BookListViewItem extends StatelessWidget {
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.5,
                     child: Text(
-                      "Alone : a true story ",
+                      book.title,
                       style: getSemiBoldStyle(color: ColorManager.white),
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
@@ -43,7 +47,7 @@ class BookListViewItem extends StatelessWidget {
                   ),
                   const SizedBox(height: 3,),
                   Text(
-                    "Anas Allahham",
+                    book.author ?? "Undefined",
                     style: getMediumStyle(color: ColorManager.white),
                   ),
                   const SizedBox(height: 3,),
@@ -51,11 +55,11 @@ class BookListViewItem extends StatelessWidget {
                   Row(
                     children: [
                       Text(
-                        "19.99 \$",
+                        "${book.price} \$",
                         style: getBoldStyle(color: ColorManager.white,fontSize: FontSize.s20),
                       ),
                       const Spacer(),
-                      const BookRating(),
+                       BookRating(rating: "${book.rating}"),
                     ],
                   ),
                 ],
